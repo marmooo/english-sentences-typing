@@ -1,0 +1,65 @@
+<!doctype html><html lang=ja><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>英文タイピング</title><meta name=description content=英文とタイピングを同時に学ぶアプリです。><script></script><link rel=apple-touch-icon sizes=180x180 href=/english-sentences-typing/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=48x48 href=/english-sentences-typing/favicon/favicon-48x48.png><link rel=manifest href=/english-sentences-typing/favicon/site.webmanifest><link rel=mask-icon href=/english-sentences-typing/favicon/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><link href=https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0 crossorigin=anonymous><style>@font-face{font-family:textar-light;src:local(Textar),url(https://marmooo.github.io/fonts/textar-light.woff2) format('woff2');font-display:swap}html,body{height:100%}pre.aa{font-size:1rem;display:inline-block;overflow:hidden;text-align:left;font-family:textar-light;line-height:1.1;white-space:pre;word-wrap:normal}#counter{font-size:10rem;width:12rem;height:12rem;line-height:12rem;border-radius:50%;background:tomato;margin:auto}#aaOuter{background:0 0;display:flex;align-items:center;justify-content:center}#aa{position:relative;top:0;left:0;margin:auto}#typePanel{word-wrap:break-word}html[data-theme=dark]{filter:invert(1) hue-rotate(180deg)}@-moz-document url-prefix(){html[data-theme=dark]{background-color:#000}}</style><script data-ad-client=ca-pub-6459713332128733 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><header id=header><nav class="navbar navbar-expand navbar-light"><div class=container><a class=navbar-brand href=/english-sentences-typing/>英文タイピング</a><div class=navbar-nav><select id=gradeOption class="form-select form-select-sm" aria-label=コース>
+<option>小4
+<option>小5
+<option>小6
+<option>中1
+<option>中2
+<option selected>中3
+<option>高1
+<option>高2
+<option>高3
+<option>大学生
+<option>社会人</select>
+<button title=音楽を再生 onclick=toggleBGM() class="btn p-0 ms-1"><svg id="bgmOn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#000"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21.0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg><svg id="bgmOff" class="d-none" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#000"><path d="M0 0h24v24H0z" fill="none"/><path d="M4.27 3 3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21.0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z"/></svg></button>
+<button title=ダークモード切替 onclick=toggleDarkMode() class="fs-4 btn p-0 ms-1">🌓</button>
+<button title=概要 class="fs-4 fw-bold btn p-0 d-sm-none" onclick=toggleOverview() aria-label=概要>
+<span aria-hidden=true>？</span></button></div></div></nav></header><main id=container class=container><noscript><div class="alert alert-warning text-center">JavaScript を ON にしてください</div></noscript><div id=infoPanel><div class="row text-center"><div class="col-sm text-start"><p>英文とタイピングを同時に学ぶアプリです。</div><div class=col-sm><div class="alert alert-info"><div class=h5><label><ruby>時間<rp>(<rt>じかん<rp>)</ruby>:</label><span id=time class=ms-1>180秒 / 180秒</span>
+<span id=mode class="ms-3 badge bg-info">EASY</span></div><div><button id=startButton class="btn btm-sm btn-primary">SPACE: スタート / ESC: リセット</button></div></div></div></div></div><div class=text-center><div id=countPanel hidden><div id=counter></div><pre class=aa>
+
+  彡 ⌒ ミ
+  (´・ω・)　  (○)
+,(ヽ∩∩ノ),、ヽ|〃,,,
+“““ ““ ““ ““ ““ ““ ““ “``““ ““
+          </pre></div><div id=scorePanel class="text-center pb-3" hidden><h3 class=pt-3>タイピング結果</h3><pre class=aa>γ⌒⌒ヽ　　*'``・* 。
+（ ﾉ ﾊヽヽ） 　　　　　 `*。
+　 　　∩彡⌒ ミ　　　　 * 　スコアだよ！
+　　　+　(´･ω･`)　*｡+ﾟ
+　　　`*｡ ヽ、　 つ *ﾟ*
+　　　　`・+｡*・' ﾟ⊃ +ﾟ
+　　　　☆　　 ∪~ ｡*ﾟ
+　　　　　`・+｡*・ ﾟ
+          </pre><table class="table table-striped"><tbody><tr><td>総タイプ数<td><span id=totalType></span><span>回</span><tr><td>スピード<td><span id=typeSpeed></span><span>回/秒</span><tr><td>ミスタイプ数<td><span id=errorType></span><span>回</span></table><a id=twitter target=_blank href="https://twitter.com/intent/tweet?text=英文タイピングで遊んだよ!&url=https%3a%2f%2fmarmooo.github.com/english-sentences-typing%2f&hashtags=英文タイピング" class="btn btn-primary" role=button>Twitter でつぶやく</a></div><div id=playPanel><div id=aaOuter><pre id=aa class=aa>   ■   ■          ■     
+■■■■■■■■■■■       ■     
+   ■ ■ ■     ■■■■■■■■■■■
+ ■■■■■■■■■     ■    ■■  
+ ■   ■   ■      ■   ■   
+ ■   ■   ■      ■   ■   
+■■■■■■■■■■■      ■ ■    
+    ■■■           ■■    
+    ■ ■■         ■■■■   
+  ■■    ■■     ■■   ■■■ 
+■■        ■  ■■       ■■
+
+　　　　　　　　　　 ＿＿＿＿＿＿＿＿＿＿＿＿＿__
+　 　 　 　 　 　　　||￣￣￣￣￣￣￣￣￣￣￣￣￣||
+　 　 　 　 　 　　　||　　彡⌒ミ　　　モード切替　　　 ||
+　 　 　 　 　 　　　|| 　(´・ω・)　　　↑=HARD　 　 　||
+　 　 　 　 　 　　　||.　（∪　　）　 　BS=NORMAL　　||
+　 　 　 　 　 　　　|| 　 `ｕ-ｕ'　 　　↓=EASY　　　　||
+　彡 ⌒ ミ　 。　 _||＿＿＿＿＿＿＿＿＿＿［三］＿||_
+　(´・ω・) ／　 .└┬┬─────────‐┬┬┘
+. （∪　　つ　 　 　 ││ 　 　 　 　　　　　　　　 彡⌒ミ　　スペルがわからない時は？
+　 `ｕ-ｕ'　　彡⌒ミ┷┷ 　 　 　 　　　　　　　　( 　　　 )
+　 　　　　　( 　　　)　 ／￣￣￣￣￣￣￣￣⊂ ((￣￣)
+　　　　　　(￣￣)) つ　∬ 　 　 　　　　　　　∬＼||￣||彡⌒ミ　 　←=ローマ字を表示
+　　 彡⌒ミ||￣||／　　匚P 　　　　　　　　　匚P　＼　( 　　　 )　　→=音声読み上げだ！
+　 　( 　　　)　／ ∬ 　 　　　　　　　　　　　　　　∬　⊂ ((￣￣)
+　 (￣￣)) つ　　匚P　　　　　　　　　　　　　　　匚P 　＼||￣||彡⌒ミ
+　　||￣||／　　　　　　　　　　　　　　　　　　　　　　　　　　＼∬(ω・｀ )　5秒減るけどな
+　　　.／　　　　　　　　　　　　　　　　　　　　　　　　　　　　　匚Pと 　 ）
+            </pre><span class=h1></span></div><div id=typePanel><div class="alert alert-info h2"><div id=japanese>タイピングしよう！</div><div id=roma>Let's typing!</div><div id=hint class=text-muted></div></div></div></div></div></main><footer class="pt-4 alert text-center"><div>辞書 - <a href=https://github.com/marmooo/mGSL>mGSL</a>
+/ <a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0</a> by
+<a href=https://github.com/marmooo>marmooo</a></div><div>英文 - <a href=http://nlp.ist.i.kyoto-u.ac.jp/index.php?日英中基本文データ>日英中基本文データ</a>
+/ <a href=http://creativecommons.org/licenses/by/3.0/>CC BY 3.0</a></div><div class=pt-3><a class=px-1 href=/>Home</a>
+<a class=px-1 href=/terms/>Terms</a>
+<a class=px-1 href=https://github.com/marmooo/english-sentences-typing>Contact</a></div><div class=text-muted>&copy; <a href=https://github.com/marmooo>marmooo</a></div></footer><script src=index.js></script>
