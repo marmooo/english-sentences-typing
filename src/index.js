@@ -11,6 +11,7 @@ const aa = document.getElementById('aa');
 const gameTime = 180;
 const tmpCanvas = document.createElement('canvas');
 const mode = document.getElementById('mode');
+const sentenceType = document.getElementById('sentenceType');
 let typeTimer;
 // https://dova-s.jp/bgm/play1735.html
 const bgm = new Audio('bgm.mp3');
@@ -160,9 +161,8 @@ function loopVoice(text, n) {
 function loadProblems() {
   var grade = gradeOption.selectedIndex + 4;
   if (grade > 0) {
-    let modeText = mode.textContent;
-    if (modeText == 'NORMAL') { modeText = 'EASY'; }
-    fetch('data/' + modeText.toLowerCase() + '/' + grade + '.tsv').then(function(response) {
+    const sentenceMode = (sentenceType.textContent == '短文') ? 'easy' : 'hard';
+    fetch('data/' + sentenceMode + '/' + grade + '.tsv').then(function(response) {
       return response.text();
     }).then(function(tsv) {
       problems = tsv.split('\n').slice(0, -1).map(line => {
@@ -344,8 +344,15 @@ function typeEvent(event) {
       nextProblem();
     }
   } else {
-    console.log(event.key);
     switch (event.key) {
+      case 'Insert':
+        sentenceType.textContent = '短文';
+        replay();
+        break;
+      case 'Delete':
+        sentenceType.textContent = '長文';
+        replay();
+        break;
       case 'ArrowDown':
         mode.textContent = 'EASY';
         replay();
@@ -526,11 +533,15 @@ function startGame() {
 function startKeyEvent(event) {
   if (event.key == ' ' || event.key == 'Spacebar') {
     startGame();
-  } else if (event.key == 'E' || event.key == '1' || event.key == 'ArrowDown') {
+  } else if (event.key == 'L' || event.key == 'Insert') {
+    sentenceType.textContent = '短文';
+  } else if (event.key == 'S' || event.key == 'Delete') {
+    sentenceType.textContent = '長文';
+  } else if (event.key == 'E' || event.key == 'ArrowDown') {
     mode.textContent = 'EASY';
-  } else if (event.key == 'N' || event.key == '2' || event.key == 'Backspace') {
+  } else if (event.key == 'N' || event.key == 'Backspace') {
     mode.textContent = 'NORMAL';
-  } else if (event.key == 'H' || event.key == '3' || event.key == 'ArrowUp') {
+  } else if (event.key == 'H' || event.key == 'ArrowUp') {
     mode.textContent = 'HARD';
   }
 }
