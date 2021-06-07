@@ -160,7 +160,9 @@ function loopVoice(text, n) {
 function loadProblems() {
   var grade = gradeOption.selectedIndex + 4;
   if (grade > 0) {
-    fetch('data/' + mode.textContent.toLowerCase() + '/' + grade + '.tsv').then(function(response) {
+    let modeText = mode.textContent;
+    if (modeText == 'NORMAL') { modeText = 'EASY'; }
+    fetch('data/' + modeText.toLowerCase() + '/' + grade + '.tsv').then(function(response) {
       return response.text();
     }).then(function(tsv) {
       problems = tsv.split('\n').slice(0, -1).map(line => {
