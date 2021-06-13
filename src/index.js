@@ -319,6 +319,17 @@ function typeNormal(currNode) {
   normalCount += 1;
 }
 
+function underlineSpace(currNode) {
+  console.log(currNode);
+  if (currNode.textContent == ' ') {
+    currNode.style.removeProperty('text-decoration');
+  }
+  const nextNode = currNode.nextElementSibling;
+  if (nextNode && nextNode.textContent == ' ') {
+    nextNode.style.textDecoration = 'underline';
+  }
+}
+
 function nextProblem() {
   playAudio(correctAudio);
   typeIndex = 0;
@@ -331,6 +342,7 @@ function typeEvent(event) {
   if (event.key.length == 1) {
     if (event.key == currNode.textContent) {
       typeNormal(currNode);
+      underlineSpace(currNode);
     } else {
       // const state = checkTypeStyle(currNode, currNode.textContent, event.key, romaNode);
       // if (!state) {
