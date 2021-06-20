@@ -95,15 +95,19 @@
       </noscript>
       <div id="infoPanel">
         <div class="row text-center">
-          <div class="col-sm-4 text-start">
+          <div class="col-sm-4 text-start pb-3">
             <p>英文とタイピングを同時に学ぶアプリです。</p>
+            <h6>キーバインド</h6>
+            <table class="table table-sm table-striped">
+              <tr><td><kbd>無変換</kbd></td><td>ローマ字表示</td><td><kbd>変換</kbd></td><td>音声読み上げ</td></tr>
+            </table>
           </div>
           <div class="col-sm-8">
             <div class="alert alert-info">
               <div class="h5">
                 <label><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>:</label><span id="time" class="ms-1">180秒 / 180秒</span>
-                <span id="mode" class="ms-3 badge bg-info">EASY</span>
-                <span id="sentenceType" class="ms-1 badge bg-info">短文</span>
+                <button id="mode" class="ms-3 btn btn-secondary btn-sm">EASY</button>
+                <button id="sentenceType" class="ms-1 btn btn-secondary btn-sm">短文</button>
               </div>
               <div>
                 <button id="startButton" class="btn btm-sm btn-primary">SPACE: スタート / ESC: リセット</button>
@@ -158,18 +162,18 @@
 ■■        ■  ■■       ■■
 
 　　　　　　　　　　 ＿＿＿＿＿＿＿＿＿＿＿＿＿__
-　 　 　 　 　 　　　||￣￣￣￣￣￣￣￣￣￣￣￣￣||　　Insert=長文
-　 　 　 　 　 　　　||　　彡⌒ミ　　　モード切替　　　 ||　　Delete=短文
-　 　 　 　 　 　　　|| 　(´・ω・)　　　↑=HARD　 　 　||
-　 　 　 　 　 　　　||.　（∪　　）　 　BS=NORMAL　　||
-　 　 　 　 　 　　　|| 　 `ｕ-ｕ'　 　　↓=EASY　　　　||
+　 　 　 　 　 　　　||￣￣￣￣￣￣￣￣￣￣￣￣￣||
+　 　 　 　 　 　　　||　　彡⌒ミ----つるっぱげ　　　 ||
+　 　 　 　 　 　　　|| 　(´・ω・)---ちっちゃい目　 　 ||
+　 　 　 　 　 　　　||.　（∪　　）---メタボなお腹　　　||
+　 　 　 　 　 　　　|| 　 `ｕ-ｕ'----短い足 　 　 　　　||
 　彡 ⌒ ミ　 。　 _||＿＿＿＿＿＿＿＿＿＿［三］＿||_
 　(´・ω・) ／　 .└┬┬─────────‐┬┬┘
 . （∪　　つ　 　 　 ││ 　 　 　 　　　　　　　　 彡⌒ミ　　スペルがわからない時は？
 　 `ｕ-ｕ'　　彡⌒ミ┷┷ 　 　 　 　　　　　　　　( 　　　 )
 　 　　　　　( 　　　)　 ／￣￣￣￣￣￣￣￣⊂ ((￣￣)
-　　　　　　(￣￣)) つ　∬ 　 　 　　　　　　　∬＼||￣||彡⌒ミ　 　←=ローマ字を表示
-　　 彡⌒ミ||￣||／　　匚P 　　　　　　　　　匚P　＼　( 　　　 )　　→=音声読み上げだ！
+　　　　　　(￣￣)) つ　∬ 　 　 　　　　　　　∬＼||￣||彡⌒ミ　ヒント機能があるぞ！
+　　 彡⌒ミ||￣||／　　匚P 　　　　　　　　　匚P　＼　( 　　　 )
 　 　( 　　　)　／ ∬ 　 　　　　　　　　　　　　　　∬　⊂ ((￣￣)
 　 (￣￣)) つ　　匚P　　　　　　　　　　　　　　　匚P 　＼||￣||彡⌒ミ
 　　||￣||／　　　　　　　　　　　　　　　　　　　　　　　　　　＼∬(ω・｀ )　5秒減るけどな

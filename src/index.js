@@ -320,7 +320,6 @@ function typeNormal(currNode) {
 }
 
 function underlineSpace(currNode) {
-  console.log(currNode);
   if (currNode.textContent == ' ') {
     currNode.style.removeProperty('text-decoration');
   }
@@ -357,33 +356,13 @@ function typeEvent(event) {
     }
   } else {
     switch (event.key) {
-      case 'Insert':
-        sentenceType.textContent = '短文';
-        replay();
-        break;
-      case 'Delete':
-        sentenceType.textContent = '長文';
-        replay();
-        break;
-      case 'ArrowDown':
-        mode.textContent = 'EASY';
-        replay();
-        break;
-      case 'ArrowUp':
-        mode.textContent = 'HARD';
-        replay();
-        break;
-      case 'Backspace':
-        mode.textContent = 'NORMAL';
-        replay();
-        break;
-      case 'ArrowLeft':
+      case 'NonConvert':
         [...romaNode.children].forEach(span => {
           span.style.visibility = 'visible';
         });
         downTime(5);
         break;
-      case 'ArrowRight':
+      case 'Convert':
         const text = romaNode.textContent;
         loopVoice(text, 1);
         downTime(5);
@@ -543,18 +522,9 @@ function startGame() {
 }
 
 function startKeyEvent(event) {
+  console.log(event.key);
   if (event.key == ' ' || event.key == 'Spacebar') {
     startGame();
-  } else if (event.key == 'L' || event.key == 'Insert') {
-    sentenceType.textContent = '短文';
-  } else if (event.key == 'S' || event.key == 'Delete') {
-    sentenceType.textContent = '長文';
-  } else if (event.key == 'E' || event.key == 'ArrowDown') {
-    mode.textContent = 'EASY';
-  } else if (event.key == 'N' || event.key == 'Backspace') {
-    mode.textContent = 'NORMAL';
-  } else if (event.key == 'H' || event.key == 'ArrowUp') {
-    mode.textContent = 'HARD';
   }
 }
 document.addEventListener('keydown', startKeyEvent);
@@ -591,10 +561,28 @@ function downTime(n) {
   }
 }
 
-
 function initTime() {
   document.getElementById('time').innerText = gameTime + '秒 / ' + gameTime + '秒';
 }
+
+function changeMode() {
+  if (this.textContent == 'EASY') {
+    this.textContent = 'NORMAL';
+  } else if (this.textContent == 'NORMAL') {
+    this.textContent = 'HARD';
+  } else {
+    this.textContent = 'EASY';
+  }
+}
+
+function changeSentenceType() {
+  if (this.textContent == '短文') {
+    this.textContent = '長文';
+  } else {
+    this.textContent = '短文';
+  }
+}
+
 
 gradeOption.addEventListener('change', function() {
   initTime();
@@ -621,5 +609,7 @@ window.addEventListener('resize', function() {
   aa.parentNode.style.height = calcAAOuterSize() + 'px';
   resizeFontSize(aa);
 });
+mode.onclick = changeMode;
+sentenceType.onclick = changeSentenceType;
 document.addEventListener('click', unlockAudio, { once:true, useCapture:true });
 
