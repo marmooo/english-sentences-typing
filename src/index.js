@@ -470,6 +470,16 @@ function showGuide(currNode) {
   }
 }
 
+function upKeyEvent(event) {
+  switch (event.key) {
+    case 'Shift': case 'CapsLock':
+      if (guide) {
+        simpleKeyboard.setOptions({ layoutName:"default" });
+        showGuide(romaNode.childNodes[typeIndex]);
+      }
+  }
+}
+
 function typeEvent(event) {
   typeEventKey(event.key);
 }
@@ -509,8 +519,7 @@ function typeEventKey(key) {
         break;
       case 'Shift': case 'CapsLock':
         if (guide) {
-          const shiftToggle = (simpleKeyboard.options.layoutName == "default") ? "shift" : "default";
-          simpleKeyboard.setOptions({ layoutName:shiftToggle });
+          simpleKeyboard.setOptions({ layoutName:"shift" });
           showGuide(romaNode.childNodes[typeIndex]);
         }
         break;
@@ -524,7 +533,7 @@ function typeEventKey(key) {
 function replay() {
   clearInterval(typeTimer);
   removeGuide(romaNode.childNodes[typeIndex]);
-  document.body.removeEventListener('keydown', typeEvent);
+  document.removeEventListener('keydown', typeEvent);
   initTime();
   loadProblems();
   countdown();
@@ -658,7 +667,7 @@ function countdown() {
       if (localStorage.getItem('bgm') == 1) {
         bgm.play();
       }
-      document.body.addEventListener('keydown', typeEvent);
+      document.addEventListener('keydown', typeEvent);
       startButton.addEventListener('click', replay);
     }
   }, 1000);
@@ -679,8 +688,6 @@ function startKeyEvent(event) {
     startGame();
   }
 }
-document.addEventListener('keydown', startKeyEvent);
-startButton.addEventListener('click', startGame);
 
 function startTypeTimer() {
   var timeNode = document.getElementById('time');
@@ -743,7 +750,7 @@ gradeOption.addEventListener('change', function() {
 });
 
 function scoring() {
-  document.body.removeEventListener('keydown', typeEvent);
+  document.removeEventListener('keydown', typeEvent);
   var grade = gradeOption.options[gradeOption.selectedIndex].value;
   var typeSpeed = (normalCount / gameTime).toFixed(2);
   document.getElementById('totalType').innerText = normalCount + errorCount;
@@ -763,6 +770,9 @@ window.addEventListener('resize', function() {
 });
 mode.onclick = changeMode;
 sentenceType.onclick = changeSentenceType;
+startButton.addEventListener('click', startGame);
 document.getElementById('guideSwitch').onchange = toggleGuide;
+document.addEventListener('keyup', upKeyEvent);
+document.addEventListener('keydown', startKeyEvent);
 document.addEventListener('click', unlockAudio, { once:true, useCapture:true });
 
