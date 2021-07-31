@@ -691,9 +691,6 @@ function startTypeTimer() {
       clearInterval(typeTimer);
       bgm.pause();
       playAudio(endAudio);
-      playPanel.classList.add('d-none');
-      countPanel.classList.add('d-none');
-      scorePanel.classList.remove('d-none');
       scoring();
     }
   }, 1000);
@@ -740,6 +737,10 @@ gradeOption.addEventListener('change', function() {
 });
 
 function scoring() {
+  infoPanel.classList.remove('d-none');
+  playPanel.classList.add('d-none');
+  countPanel.classList.add('d-none');
+  scorePanel.classList.remove('d-none');
   document.removeEventListener('keydown', typeEvent);
   var grade = gradeOption.options[gradeOption.selectedIndex].value;
   var typeSpeed = (normalCount / gameTime).toFixed(2);
