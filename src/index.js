@@ -644,6 +644,7 @@ function countdown() {
   typeIndex = normalCount = errorCount = solveCount = 0;
   document.getElementById('guideSwitch').disabled = true;
   document.getElementById('virtualKeyboard').disabled = true;
+  infoPanel.classList.add('d-none');
   playPanel.classList.add('d-none');
   countPanel.classList.remove('d-none');
   scorePanel.classList.add('d-none');
@@ -659,9 +660,10 @@ function countdown() {
       clearInterval(timer);
       document.getElementById('guideSwitch').disabled = false;
       document.getElementById('virtualKeyboard').disabled = false;
+      infoPanel.classList.remove('d-none');
+      playPanel.classList.remove('d-none');
       countPanel.classList.add('d-none');
       scorePanel.classList.add('d-none');
-      playPanel.classList.remove('d-none');
       typable();
       startTypeTimer();
       if (localStorage.getItem('bgm') == 1) {
