@@ -257,7 +257,7 @@ function loopVoice(text, n) {
 }
 
 function loadProblems() {
-  var grade = gradeOption.selectedIndex + 3;
+  var grade = gradeOption.selectedIndex + 2;
   if (grade > 0) {
     const sentenceMode = (sentenceType.textContent == '短文') ? 'easy' : 'hard';
     fetch('data/' + sentenceMode + '/' + grade + '.tsv').then(function(response) {
