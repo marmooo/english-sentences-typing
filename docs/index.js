@@ -31,8 +31,7 @@ const button=simpleKeyboard.getButtonElement(key);if(button){button.classList.re
 function showGuide(currNode){if(guide){let key=currNode.textContent;if(key==' '){key='{space}';}
 const button=simpleKeyboard.getButtonElement(key);if(button){button.classList.add('bg-info');}else{const shift=simpleKeyboard.getButtonElement("{shift}");shift.classList.add('bg-info');}}}
 function upKeyEvent(event){switch(event.key){case 'Shift':case 'CapsLock':if(guide){simpleKeyboard.setOptions({layoutName:"default"});showGuide(romaNode.childNodes[typeIndex]);}}}
-function patchEvent(event){if(event.key=='&'&&event.code=='Digit7'){return "'";}
-return event.key;}
+function patchEvent(event){if(event.key=='@'&&event.code=='Digit2'){return '"';}else if(event.key=='&'&&event.code=='Digit7'){return "'";}else{return event.key;}}
 function typeEvent(event){const key=patchEvent(event);typeEventKey(key);}
 function typeEventKey(key){const currNode=romaNode.childNodes[typeIndex];if(key.length==1){if(key==currNode.textContent){typeNormal(currNode);removeGuide(currNode);underlineSpace(currNode);}else{playAudio(incorrectAudio,0.3);errorCount+=1;}
 if(typeIndex==romaNode.childNodes.length){nextProblem();}else{showGuide(romaNode.childNodes[typeIndex]);}}else{switch(key){case 'NonConvert':[...romaNode.children].forEach(span=>{span.style.visibility='visible';});downTime(5);break;case 'Convert':const text=romaNode.textContent;loopVoice(text,1);break;case 'Shift':case 'CapsLock':if(guide){simpleKeyboard.setOptions({layoutName:"shift"});showGuide(romaNode.childNodes[typeIndex]);}
