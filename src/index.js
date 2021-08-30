@@ -480,8 +480,17 @@ function upKeyEvent(event) {
   }
 }
 
+// TODO: Chrome の問題で英語キーボードと判定されるのを無理やり修正
+function patchEvent(event) {
+  if (event.key == '&' && event.code == 'Digit7') {
+    return "'";
+  }
+  return event.key;
+}
+
 function typeEvent(event) {
-  typeEventKey(event.key);
+  const key = patchEvent(event);
+  typeEventKey(key);
 }
 
 function typeEventKey(key) {
