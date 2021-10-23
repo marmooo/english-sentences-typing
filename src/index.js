@@ -438,7 +438,7 @@ function replay() {
 function calcAAOuterSize() {
   let height = document.documentElement.clientHeight;
   height -= document.getElementById("header").offsetHeight;
-  height -= document.getElementById("infoPanel").offsetHeight;
+  height -= document.getElementById("timePanel").offsetHeight;
   height -= document.getElementById("typePanel").offsetHeight;
   height -= document.getElementById("keyboard").offsetHeight;
   return height;
@@ -490,9 +490,17 @@ function resizeFontSize(node) {
   const colFontSize = fontSize * (nodeRect[1] - paddingRect[1]) / textRect[1] *
     0.90;
   if (colFontSize < rowFontSize) {
-    node.style.fontSize = colFontSize + "px";
+    if (colFontSize < remSize) {
+      node.style.fontSize = remSize + "px";
+    } else {
+      node.style.fontSize = colFontSize + "px";
+    }
   } else {
-    node.style.fontSize = rowFontSize + "px";
+    if (rowFontSize < remSize) {
+      node.style.fontSize = remSize + "px";
+    } else {
+      node.style.fontSize = rowFontSize + "px";
+    }
   }
 }
 
@@ -659,9 +667,6 @@ function scoring() {
     "&url=https%3a%2f%2fmarmooo.github.com/hageda%2f&hashtags=英文タイピング";
   document.addEventListener("keydown", startKeyEvent);
 }
-
-aa.parentNode.style.height = calcAAOuterSize() + "px";
-resizeFontSize(aa);
 
 document.getElementById("toggleDarkMode").onclick = toggleDarkMode;
 document.getElementById("toggleBGM").onclick = toggleBGM;
