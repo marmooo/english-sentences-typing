@@ -1,3 +1,4 @@
+const remSize = parseInt(getComputedStyle(document.documentElement).fontSize);
 const playPanel = document.getElementById("playPanel");
 const countPanel = document.getElementById("countPanel");
 const scorePanel = document.getElementById("scorePanel");
