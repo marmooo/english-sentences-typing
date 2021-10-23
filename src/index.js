@@ -573,7 +573,7 @@ function countdown() {
       countPanel.classList.add("d-none");
       scorePanel.classList.add("d-none");
       window.scrollTo({
-        top: document.getElementById("typePanel").getBoundingClientRect().top +
+        top: document.getElementById("timePanel").getBoundingClientRect().top +
           document.documentElement.scrollTop,
         behavior: "auto",
       });
@@ -667,6 +667,9 @@ function scoring() {
     "&url=https%3a%2f%2fmarmooo.github.com/hageda%2f&hashtags=英文タイピング";
   document.addEventListener("keydown", startKeyEvent);
 }
+
+aa.parentNode.style.height = calcAAOuterSize() + "px";
+resizeFontSize(aa);
 
 document.getElementById("toggleDarkMode").onclick = toggleDarkMode;
 document.getElementById("toggleBGM").onclick = toggleBGM;
