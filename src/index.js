@@ -564,6 +564,11 @@ function countdown() {
       playPanel.classList.remove("d-none");
       countPanel.classList.add("d-none");
       scorePanel.classList.add("d-none");
+      window.scrollTo({
+        top: document.getElementById("typePanel").getBoundingClientRect().top +
+          document.documentElement.scrollTop,
+        behavior: "auto",
+      });
       typable();
       startTypeTimer();
       if (localStorage.getItem("bgm") == 1) {
