@@ -67,7 +67,7 @@ const keyboardDisplay = {
   "{lock}": "Caps",
   "{shift}": "Shift",
   "{space}": " ",
-  "🌏": "日本語",
+  "🌏": "🇯🇵",
 };
 const simpleKeyboard = new SimpleKeyboard.default({
   layout: layout109,
@@ -87,13 +87,13 @@ const simpleKeyboard = new SimpleKeyboard.default({
         return typeEventKey("Convert");
       case "🌏":
         if (simpleKeyboard.options.layout == layout109) {
-          keyboardDisplay["🌏"] = "英語";
+          keyboardDisplay["🌏"] = "🇺🇸";
           simpleKeyboard.setOptions({
             layout: layout104,
             display: keyboardDisplay,
           });
         } else {
-          keyboardDisplay["🌏"] = "日本語";
+          keyboardDisplay["🌏"] = "🇯🇵";
           simpleKeyboard.setOptions({
             layout: layout109,
             display: keyboardDisplay,
