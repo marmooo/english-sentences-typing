@@ -436,8 +436,11 @@ function replay() {
   scorePanel.classList.add("d-none");
 }
 
-function calcAAOuterSize() {
+function calcAAOuterSize(firstRun) {
   let height = document.documentElement.clientHeight;
+  if (firstRun) {
+    height -= document.getElementById("header").offsetHeight;
+  }
   height -= document.getElementById("timePanel").offsetHeight;
   height -= document.getElementById("typePanel").offsetHeight;
   height -= document.getElementById("keyboard").offsetHeight;
@@ -670,7 +673,7 @@ function scoring() {
   document.addEventListener("keydown", startKeyEvent);
 }
 
-aa.parentNode.style.height = calcAAOuterSize() + "px";
+aa.parentNode.style.height = calcAAOuterSize(true) + "px";
 resizeFontSize(aa);
 
 document.getElementById("toggleDarkMode").onclick = toggleDarkMode;
