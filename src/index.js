@@ -372,6 +372,9 @@ function patchEvent(event) {
 
 function typeEvent(event) {
   const key = patchEvent(event);
+  if (key == " " || key == "Spacebar") {
+    event.preventDefault();  // ScrollLock
+  }
   typeEventKey(key);
 }
 
@@ -594,6 +597,7 @@ function countdown() {
 
 function startKeyEvent(event) {
   if (event.key == " " || event.key == "Spacebar") {
+    event.preventDefault();
     document.removeEventListener("keydown", startKeyEvent);
     replay();
   }
