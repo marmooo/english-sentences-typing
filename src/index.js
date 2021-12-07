@@ -82,7 +82,7 @@ const simpleKeyboard = new SimpleKeyboard.default({
       case "{space}":
         return typeEventKey(" ");
       case "無変換":
-        return typeEventKey("NoConvert");
+        return typeEventKey("NonConvert");
       case "変換":
         return typeEventKey("Convert");
       case "🌏":
