@@ -270,19 +270,17 @@ function loadProblems() {
   const grade = gradeOption.selectedIndex + 2;
   if (grade > 0) {
     const sentenceMode = (sentenceType.textContent == "短文") ? "easy" : "hard";
-    fetch("data/" + sentenceMode + "/" + grade + ".tsv").then(
-      function (response) {
-        return response.text();
-      },
-    ).then(function (tsv) {
-      problems = tsv.trim().split("\n").map((line) => {
-        const [en, jaStr] = line.split("\t");
-        const ja = jaStr.split("|").slice(0, 3).join("\n");
-        return { en: en, ja: ja };
+    fetch("data/" + sentenceMode + "/" + grade + ".tsv")
+      .then((response) => response.text())
+      .then((tsv) => {
+        problems = tsv.trim().split("\n").map((line) => {
+          const [en, jaStr] = line.split("\t");
+          const ja = jaStr.split("|").slice(0, 3).join("\n");
+          return { en: en, ja: ja };
+        });
+      }).catch(function (err) {
+        console.error(err);
       });
-    }).catch(function (err) {
-      console.error(err);
-    });
   }
 }
 
@@ -373,7 +371,7 @@ function patchEvent(event) {
 function typeEvent(event) {
   const key = patchEvent(event);
   if (key == " " || key == "Spacebar") {
-    event.preventDefault();  // ScrollLock
+    event.preventDefault(); // ScrollLock
   }
   typeEventKey(key);
 }
