@@ -676,7 +676,7 @@ function scoring() {
   document.getElementById("twitter").href =
     "https://twitter.com/intent/tweet?text=英文タイピングの" + grade +
     "をプレイしたよ! (速度: " + typeSpeed + "回/秒) " +
-    "&url=https%3a%2f%2fmarmooo.github.com/hageda%2f&hashtags=英文タイピング";
+    "&url=https%3a%2f%2fmarmooo.github.com/english-sentences-typing/%2f&hashtags=英文タイピング";
   document.addEventListener("keydown", startKeyEvent);
 }
 
