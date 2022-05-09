@@ -1,4 +1,4 @@
-var CACHE_NAME = '2022-04-17 12:45';
+var CACHE_NAME = '2022-05-09 09:05';
 var urlsToCache = [
   "/english-sentences-typing/",
   "/english-sentences-typing/index.js",
@@ -7,7 +7,7 @@ var urlsToCache = [
   "/english-sentences-typing/mp3/correct.mp3",
   "/english-sentences-typing/mp3/end.mp3",
   "/english-sentences-typing/mp3/keyboard.mp3",
-  "/english-sentences-typing/favicon/original.svg",
+  "/english-sentences-typing/favicon/favicon.svg",
   "https://marmooo.github.io/fonts/textar-light.woff2",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/simple-keyboard@3.4.52/build/index.min.js",
