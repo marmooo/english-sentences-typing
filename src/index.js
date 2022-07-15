@@ -13,7 +13,7 @@ const gradeOption = document.getElementById("gradeOption");
 const aa = document.getElementById("aa");
 const tmpCanvas = document.createElement("canvas");
 const mode = document.getElementById("mode");
-const sentenceType = document.getElementById("sentenceType");
+const sentenceLength = document.getElementById("sentenceLength");
 const gameTime = 180;
 let playing;
 let typeTimer;
@@ -279,7 +279,7 @@ function loopVoice(text, n) {
 function loadProblems() {
   const grade = gradeOption.selectedIndex + 3;
   if (grade > 0) {
-    const sentenceMode = (sentenceType.textContent == "短文") ? "easy" : "hard";
+    const sentenceMode = sentenceLength.options[sentenceLength.selectedIndex].value;
     fetch("data/" + sentenceMode + "/" + grade + ".tsv")
       .then((response) => response.text())
       .then((tsv) => {
@@ -602,10 +602,9 @@ function countdown() {
 function startTypeTimer() {
   const timeNode = document.getElementById("time");
   typeTimer = setInterval(function () {
-    const arr = timeNode.textContent.split("秒 /");
-    const t = parseInt(arr[0]);
+    const t = parseInt(timeNode.textContent);
     if (t > 0) {
-      timeNode.textContent = (t - 1) + "秒 /" + arr[1];
+      timeNode.textContent = t - 1;
     } else {
       clearInterval(typeTimer);
       bgm.pause();
@@ -617,19 +616,17 @@ function startTypeTimer() {
 
 function downTime(n) {
   const timeNode = document.getElementById("time");
-  const arr = timeNode.textContent.split("秒 /");
-  const t = parseInt(arr[0]);
+  const t = parseInt(timeNode.textContent);
   const downedTime = t - n;
   if (downedTime < 0) {
-    timeNode.textContent = "0秒 /" + arr[1];
+    timeNode.textContent = 0;
   } else {
-    timeNode.textContent = downedTime + "秒 /" + arr[1];
+    timeNode.textContent = downedTime;
   }
 }
 
 function initTime() {
-  document.getElementById("time").textContent = gameTime + "秒 / " + gameTime +
-    "秒";
+  document.getElementById("time").textContent = gameTime;
 }
 
 function changeMode() {
@@ -639,14 +636,6 @@ function changeMode() {
     this.textContent = "HARD";
   } else {
     this.textContent = "EASY";
-  }
-}
-
-function changeSentenceType() {
-  if (this.textContent == "短文") {
-    this.textContent = "長文";
-  } else {
-    this.textContent = "短文";
   }
 }
 
@@ -682,7 +671,6 @@ window.addEventListener("resize", function () {
   resizeFontSize(aa);
 });
 mode.onclick = changeMode;
-sentenceType.onclick = changeSentenceType;
 startButton.addEventListener("click", replay);
 document.getElementById("guideSwitch").onchange = toggleGuide;
 document.addEventListener("keyup", upKeyEvent);
