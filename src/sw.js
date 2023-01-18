@@ -1,4 +1,4 @@
-var CACHE_NAME = "2023-01-07 08:45";
+var CACHE_NAME = "2023-01-18 10:45";
 var urlsToCache = [
   "/english-sentences-typing/",
   "/english-sentences-typing/index.js",
