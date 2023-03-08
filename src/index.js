@@ -298,7 +298,7 @@ function loopVoice(text, n) {
 }
 
 function loadProblems() {
-  const grade = gradeOption.selectedIndex + 3;
+  const grade = gradeOption.selectedIndex + 2;
   if (grade > 0) {
     const sentenceMode =
       sentenceLength.options[sentenceLength.selectedIndex].value;
