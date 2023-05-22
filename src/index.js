@@ -394,6 +394,23 @@ function convertNormalJaEn(event) {
   return typeEventKey(event.key);
 }
 
+function convertJaEn(event, jaDefault, jaShift, enDefault, enShift) {
+  if (event.shiftKey) {
+    if (simpleKeyboard.options.layout == layout109) {
+      return typeEventKey(jaShift);
+    } else {
+      return typeEventKey(enShift);
+    }
+  } else {
+    if (simpleKeyboard.options.layout == layout109) {
+      return typeEventKey(jaDefault);
+    } else {
+      return typeEventKey(enDefault);
+    }
+  }
+  return typeEventKey(event.key);
+}
+
 function convertShiftJaEn(event, ja, en) {
   if (event.shiftKey) {
     if (simpleKeyboard.options.layout == layout109) {
@@ -423,6 +440,18 @@ function typeEvent(event) {
       return convertShiftJaEn(event, ")", "(");
     case "Digit0":
       return convertShiftJaEn(event, "~", ")");
+    case "Minus":
+      return convertShiftJaEn(event, "=", "_");
+    case "Equal":
+      return convertJaEn(event, "^", "~", "=", "+");
+    case "BracketLeft":
+      return convertJaEn(event, "@", "`", "{", "[");
+    case "BracketRight":
+      return convertJaEn(event, "{", "[", "}", "]");
+    case "Semicolon":
+      return convertShiftJaEn(event, "+", ";");
+    case "Quote":
+      return convertJaEn(event, ":", "+", "'", '"');
     case "Space":
       event.preventDefault();
       // falls through
