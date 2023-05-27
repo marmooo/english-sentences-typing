@@ -369,31 +369,6 @@ function upKeyEvent(event) {
   }
 }
 
-// TODO: Chrome の実装の問題で、
-// Linux / Android では日本語キーボードを使っていても
-// 英語キーボードの配列で event.key が出力されてしまう
-// よく使う記号だけ入れ替えて無理やり対処する
-function patchEvent(event) {
-  if (event.key == "@" && event.code == "Digit2") {
-    return '"';
-  } else if (event.key == "&" && event.code == "Digit7") {
-    return "'";
-  } else {
-    return event.key;
-  }
-}
-
-function convertNormalJaEn(event) {
-  if (!event.shiftKey) {
-    if (simpleKeyboard.options.layout == layout109) {
-      return typeEventKey(ja);
-    } else {
-      return typeEventKey(en);
-    }
-  }
-  return typeEventKey(event.key);
-}
-
 function convertJaEn(event, jaDefault, jaShift, enDefault, enShift) {
   if (event.shiftKey) {
     if (simpleKeyboard.options.layout == layout109) {
@@ -408,7 +383,6 @@ function convertJaEn(event, jaDefault, jaShift, enDefault, enShift) {
       return typeEventKey(enDefault);
     }
   }
-  return typeEventKey(event.key);
 }
 
 function convertShiftJaEn(event, ja, en) {
