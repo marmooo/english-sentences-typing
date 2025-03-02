@@ -26,24 +26,7 @@ sudo apt install festival speech-dispatcher-festival</code></pre></div><div id=i
 <kbd>Enter</kbd>
 <span class=ms-1>スタート</span>
 <kbd class=ms-3>Esc</kbd>
-<span class=ms-1>リセット</span></button></div></div></div></div></div><div id=gamePanel class="positioin-relative overflow-hidden"><div id=aaOuter class=notranslate><pre id=aa class=aa>　　　　　　　　　　 ＿＿＿＿＿＿＿＿＿＿＿＿＿__
-　 　 　 　 　 　　　||￣￣￣￣￣￣￣￣￣￣￣￣￣||
-　 　 　 　 　 　　　||　　彡⌒ミ----つるっぱげ　　　 ||
-　 　 　 　 　 　　　|| 　(´・ω・)---ちっちゃい目　 　 ||
-　 　 　 　 　 　　　||.　（∪　　）---メタボなお腹　　　||
-　 　 　 　 　 　　　|| 　 `ｕ-ｕ'----短い足 　 　 　　　||
-　彡 ⌒ ミ　 。　 _||＿＿＿＿＿＿＿＿＿＿［三］＿||_
-　(´・ω・) ／　 .└┬┬─────────‐┬┬┘
-. （∪　　つ　 　 　 ││ 　 　 　 　　　　　　　　 彡⌒ミ　　スペルがわからない時は？
-　 `ｕ-ｕ'　　彡⌒ミ┷┷ 　 　 　 　　　　　　　　( 　　　 )
-　 　　　　　( 　　　)　 ／￣￣￣￣￣￣￣￣⊂ ((￣￣)
-　　　　　　(￣￣)) つ　∬ 　 　 　　　　　　　∬＼||￣||彡⌒ミ　ヒント機能があるぞ！
-　　 彡⌒ミ||￣||／　　匚P 　　　　　　　　　匚P　＼　( 　　　 )
-　 　( 　　　)　／ ∬ 　 　　　　　　　　　　　　　　∬　⊂ ((￣￣)
-　 (￣￣)) つ　　匚P　　　　　　　　　　　　　　　匚P 　＼||￣||彡⌒ミ
-　　||￣||／　　　　　　　　　　　　　　　　　　　　　　　　　　＼∬(ω・｀ )　5秒へるけどな
-　　　.／　　　　　　　　　　　　　　　　　　　　　　　　　　　　　匚Pと 　 ）
-          </pre></div><div id=playPanel><div id=typePanel><div class="alert alert-info mb-0 h2 text-center"><div id=japanese>タイピングしよう！</div><div id=roma class=notranslate><span class=inputed></span><span class=wanted>L</span><span class=remained>et's typing!</span></div><div id=hint class="text-muted notranslate"></div></div></div><div id=keyboard class="d-none simple-keyboard notranslate"></div></div></div><div id=scorePanel class="text-center pb-3 d-none"><h3 class=pt-3>スコア</h3><div class="d-flex justify-content-center align-items-center"><div class=notranslate><pre class=aa>γ⌒⌒ヽ　　*'``・* 。
+<span class=ms-1>リセット</span></button></div></div></div></div></div><div id=gamePanel></div><div id=scorePanel class="text-center pb-3 d-none"><h3 class=pt-3>スコア</h3><div class="d-flex justify-content-center align-items-center"><div class=notranslate><pre class=aa>γ⌒⌒ヽ　　*'``・* 。
 （ ﾉ ﾊヽヽ） 　　　　　 `*。
 　 　　∩彡⌒ ミ　　　　 *
 　　　+　(´･ω･`)　*｡+ﾟ
@@ -61,4 +44,21 @@ sudo apt install festival speech-dispatcher-festival</code></pre></div><div id=i
 / <a href=http://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0</a> by
 <a href=https://github.com/marmooo>marmooo</a></div><div class=pt-3><a class=px-1 href=/>Home</a>
 <a class=px-1 href=/terms/>Terms</a>
-<a class=px-1 href=https://github.com/marmooo/english-sentences-typing>Contact</a></div><div class=text-muted>&copy; <a href=https://github.com/marmooo>marmooo</a></div></footer><script type=module src=index.js></script>
+<a class=px-1 href=https://github.com/marmooo/english-sentences-typing>Contact</a></div><div class=text-muted>&copy; <a href=https://github.com/marmooo>marmooo</a></div></footer><template id=gamePanelTemplate><div id=gamePanel class="positioin-relative overflow-hidden"><div id=aaOuter class=notranslate><pre id=aa class=aa>　　　　　　　　　　 ＿＿＿＿＿＿＿＿＿＿＿＿＿__
+　 　 　 　 　 　　　||￣￣￣￣￣￣￣￣￣￣￣￣￣||
+　 　 　 　 　 　　　||　　彡⌒ミ----つるっぱげ　　　 ||
+　 　 　 　 　 　　　|| 　(´・ω・)---ちっちゃい目　 　 ||
+　 　 　 　 　 　　　||.　（∪　　）---メタボなお腹　　　||
+　 　 　 　 　 　　　|| 　 `ｕ-ｕ'----短い足 　 　 　　　||
+　彡 ⌒ ミ　 。　 _||＿＿＿＿＿＿＿＿＿＿［三］＿||_
+　(´・ω・) ／　 .└┬┬─────────‐┬┬┘
+. （∪　　つ　 　 　 ││ 　 　 　 　　　　　　　　 彡⌒ミ　　スペルがわからない時は？
+　 `ｕ-ｕ'　　彡⌒ミ┷┷ 　 　 　 　　　　　　　　( 　　　 )
+　 　　　　　( 　　　)　 ／￣￣￣￣￣￣￣￣⊂ ((￣￣)
+　　　　　　(￣￣)) つ　∬ 　 　 　　　　　　　∬＼||￣||彡⌒ミ　ヒント機能があるぞ！
+　　 彡⌒ミ||￣||／　　匚P 　　　　　　　　　匚P　＼　( 　　　 )
+　 　( 　　　)　／ ∬ 　 　　　　　　　　　　　　　　∬　⊂ ((￣￣)
+　 (￣￣)) つ　　匚P　　　　　　　　　　　　　　　匚P 　＼||￣||彡⌒ミ
+　　||￣||／　　　　　　　　　　　　　　　　　　　　　　　　　　＼∬(ω・｀ )　5秒へるけどな
+　　　.／　　　　　　　　　　　　　　　　　　　　　　　　　　　　　匚Pと 　 ）
+          </pre></div><div id=typePanel><div class="alert alert-info mb-0 h2 text-center"><div id=japanese>タイピングしよう！</div><div id=roma class=notranslate><span class=inputed></span><span class=wanted>L</span><span class=remained>et's typing!</span></div><div id=hint class="text-muted notranslate"></div></div></div><div id=keyboard class="d-none simple-keyboard notranslate"></div></div></template><script type=module src=index.js></script>
