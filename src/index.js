@@ -299,14 +299,12 @@ function loadVoices() {
   });
 }
 
-function loopVoice(text, n) {
+function speak(text) {
   speechSynthesis.cancel();
   const msg = new globalThis.SpeechSynthesisUtterance(text);
   msg.voice = englishVoices[Math.floor(Math.random() * englishVoices.length)];
   msg.lang = "en-US";
-  for (let i = 0; i < n; i++) {
-    speechSynthesis.speak(msg);
-  }
+  speechSynthesis.speak(msg);
 }
 
 function loadProblems() {
@@ -448,7 +446,7 @@ function typeEventKey(key) {
       downTime(5);
       return;
     case "Convert":
-      loopVoice(problem.en, 1);
+      speak(problem.en);
       return;
     case "Shift":
     case "CapsLock":
@@ -593,7 +591,7 @@ function typable() {
   } else {
     hint.classList.add("d-none");
   }
-  loopVoice(roma, 2);
+  speak(roma);
   const children = romaNode.children;
   children[0].textContent = "";
   children[1].textContent = roma[0];
